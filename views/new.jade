@@ -1,0 +1,14 @@
+//
+   Created by MMY on 2015/12/11.
+extends layout
+
+block content
+    h1 添加任务
+    form(method='post',action='/')
+        div.lineheight
+            label 任务：
+            input(type='text',name='task',class='xlarge',required='required')
+        div.lineheight
+            input(type='submit',value='保存',class='savebtn')
+            input(type='reset',value='重置',class='cancelbtn')
+

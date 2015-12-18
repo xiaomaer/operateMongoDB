@@ -1,0 +1,30 @@
+extends layout
+//一定要注意语句和标签缩进，不然不显示
+block content
+    - if(typeof flash!=='undefined')
+    include flash
+    h1 任务列表
+
+    - if(docs.length)
+     table(border='1',id="table")
+         tr
+             th Task
+             th 修改
+             th 删除
+                 each task in docs
+                     tr
+                         td #{task.task}
+                         td
+                            a.btn(href='/#{task.id}/edit') 修改
+                         td
+                            a.btn(href='/deltask/#{task.id}',id='delbtn') 删除
+                            //form(method='post',action='/'+task.id,id="delbtn")
+                            //  input(type='hidden',name='_method',value='delete')
+                            //  input(type='submit',value='删除')
+    - else
+      p You don't have any tasks!
+
+    p
+        a(href='/new',class=addbtn) 添加任务
+    script(src='/javascripts/main.js')
+
