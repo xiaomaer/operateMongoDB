@@ -4,7 +4,7 @@ var router = express.Router();
 //新添加的模块,该模块用于处理MongoDB
 var mongoose = require('mongoose');
 //连接MongoDB数据库,并创建自己的数据库，数据库名称为operateDB。
-// 连接字符串格式为mongodb://主机/数据库名
+// 连接字符串格式为mongodb://主机:port/数据库名，默认端口号为27017，可不写
 mongoose.connect('mongodb://localhost/operateDB', function (err) {
     if (!err) {
         console.log('connected to MongoDB');

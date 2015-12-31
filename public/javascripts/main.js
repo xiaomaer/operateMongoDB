@@ -4,7 +4,14 @@
 var del = document.getElementById('delbtn');
 if (del !== null) {
     del.onclick = function () {
-        this.parentNode.parentNode.remove();
+        //判断从数据库是否删除数据成功
+        if(app.locals.success){
+            //删除一行表格
+            this.parentNode.parentNode.remove();
+            console.log('delete');
+        }
+
+
     };
 }
 //使用form表单提交delete删除任务请求,即index.jade页面注释的代码（记得把index.js对应的路由规则中的get修改为delete）
